@@ -13,7 +13,7 @@ const Chat = () => {
   useEffect(() => {
     // Fetch initial unanswered chat messages for the admin
     fetchUnansweredMessages();
-    const intervalId = setInterval(fetchUnansweredMessages, 5000); // Poll every 5 seconds (adjust as needed)
+    const intervalId = setInterval(fetchUnansweredMessages, 500); // Poll every 5 seconds (adjust as needed)
     return () => clearInterval(intervalId);
   }, []);
 
@@ -51,6 +51,15 @@ const Chat = () => {
     } catch (error) {
       console.error('Error updating message:', error);
     }
+  };
+
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert 0 to 12
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
 
   return (
@@ -91,7 +100,7 @@ const Chat = () => {
                             <small><strong>Sender:</strong> {msg.sender}</small>
                           </div>
                           <div className="mt-2">
-                            <small><strong>Timestamp:</strong> {msg.timestamp}</small>
+                            <small><strong></strong> {formatTimestamp(msg.timestamp)}</small>
                           </div>
                           <div className="mt-2">
                             <small><strong>Response:</strong></small>

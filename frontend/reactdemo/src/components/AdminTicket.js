@@ -173,8 +173,8 @@ const Admin = () => {
           <div className="card-body">
             <h2 className="card-title">Fetched Ticket Details</h2>
             <p><strong>ID:</strong> {fetchedTicket._id}</p>
-            <p><strong>Title:</strong> {fetchedTicket.title}</p>
-            <p><strong>Description:</strong> {fetchedTicket.description}</p>
+            <p><strong>Issue:</strong> {fetchedTicket.title}</p>
+            <p><strong>Solution:</strong> {fetchedTicket.description}</p>
             <p><strong>Status:</strong> {fetchedTicket.status}</p>
             <div className="d-flex">
               <button onClick={handleHideFetchedTicketDetails} className="btn btn-primary">OK</button>
@@ -220,8 +220,8 @@ const Admin = () => {
               <li key={ticket._id} className="list-group-item">
                 <div>
                   <p><strong>ID:</strong> {ticket._id}</p>
-                  <p><strong>Title:</strong> {ticket.title}</p>
-                  <p><strong>Description:</strong> {ticket.description}</p>
+                  <p><strong>Issue:</strong> {ticket.title}</p>
+                  <p><strong>Solution:</strong> {ticket.description}</p>
                   <p><strong>Status:</strong> {ticket.status}</p>
                   <div className="d-flex">
                     <button onClick={() => handleGetTicketDetails(ticket._id)} className="btn btn-info mr-2">Update</button>

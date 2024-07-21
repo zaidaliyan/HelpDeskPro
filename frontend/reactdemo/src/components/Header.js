@@ -13,9 +13,9 @@ const Header = ({ isLoggedIn }) => {
           <ul className="list-inline mb-0">
             {isLoggedIn ? (
               <>
-                <li className="list-inline-item">
+                {/* <li className="list-inline-item">
                   <Link to="/profile" className="text-white text-decoration-none">Profile</Link>
-                </li>
+                </li> */}
                 <li className="list-inline-item">
                   <Link to="/logout" className="text-white text-decoration-none">Logout</Link>
                 </li>

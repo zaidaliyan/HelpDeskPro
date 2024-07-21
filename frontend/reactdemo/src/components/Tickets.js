@@ -138,11 +138,11 @@ const Tickets = () => {
       <h1>Create a New Ticket</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Issue:</label>
           <input type="text" className="form-control" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div className="form-group">
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">Solution:</label>
           <textarea className="form-control" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>

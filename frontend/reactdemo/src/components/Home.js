@@ -58,17 +58,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-6">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Analytics</h5>
-                            <p className="card-text">View statistics and reports on support performance.</p>
-                            <Link to="/analytics" className="btn btn-primary">View Analytics</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };

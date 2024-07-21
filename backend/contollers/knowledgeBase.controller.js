@@ -55,12 +55,18 @@ const updateArticle = async (req, res) => {
 
 const deleteArticle = async (req, res) => {
   try {
-    const article = await KnowledgeBase.findByIdAndDelete(req.params._id);
+    const articleId = req.params.id;
+    console.log(`Attempting to delete article with ID: ${articleId}`); // Debug log
+
+    const article = await KnowledgeBase.findByIdAndDelete(articleId);
     if (!article) {
       return res.status(404).json({ message: 'Article not found' });
     }
+
+    console.log('Deleted article:', article); // Debug log
     res.json({ message: 'Article deleted successfully' });
   } catch (err) {
+    console.error('Error deleting article:', err); // Improved error logging
     res.status(500).json({ message: err.message });
   }
 };

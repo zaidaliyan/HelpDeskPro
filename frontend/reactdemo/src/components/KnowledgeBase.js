@@ -133,16 +133,21 @@ const KnowledgeBase = () => {
 
   const handleDeleteArticle = async (articleId) => {
     try {
-      // Make a DELETE request to delete the article
-      await axios.delete(`http://localhost:3001/api/knowledge-base/${articleId}`, {
-        headers: { Authorization: `Bearer ${token}` } // Include the token in the request headers
+      console.log(`Deleting article with ID: ${articleId}`); // Debug log
+      const response = await axios.delete(`http://localhost:3001/api/knowledge-base/${articleId}`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
-      // Fetch updated search results after deleting the article
+      console.log('Delete response:', response.data); // Debug log
+  
+      // Update search results after deleting the article
       fetchSearchResults();
+      // Update all articles after deleting the article
+      fetchAllArticles();
     } catch (error) {
-      console.error('Error deleting article:', error);
+      console.error('Error deleting article:', error.response ? error.response.data : error.message); // Improved error logging
     }
   };
+  
 
   const handleEditButtonClick = (article) => {
     // Set the article to edit and populate the form fields
